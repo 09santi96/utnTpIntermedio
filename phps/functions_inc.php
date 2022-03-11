@@ -62,7 +62,7 @@
        mysqli_stmt_close($stmt);
     }
 
-//-----------------------------------------------------------------------------------------
+//-----------------------------------insert db functions-------------------------------------------------
   function createUser($conn, $user, $mail, $dni, $pass){ //el orden de los parametros debe coincidir con el orden de la tabla
     $sql = "INSERT INTO usuarios (usuario, email, dni, usersPwd) values(?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
@@ -78,6 +78,21 @@
     header("Location:form.php?error=none");
     exit();
  }
+ function createOrder($conn, $titulo, $desc, $date, $files){ //el orden de los parametros debe coincidir con el orden de la tabla
+    $sql = "INSERT INTO pedidos (titulo, descripcion, fecha, order_file) values(?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql) ){
+         header("Location:realizar_pedidos.php?error=danger");
+         exit();
+    }
+    mysqli_stmt_bind_param($stmt, "ssss", $titulo, $desc, $date, $files);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    
+    header("Location:../realizar_pedidos.php?error=success");
+    exit();
+ }
+
 
 //---------------------------------log in functions----------------------------------------------------
 
@@ -107,6 +122,8 @@ function loginUser($conn, $user, $pass){
         session_start();
         $_SESSION['userID'] = $uIdExist['id_usuario']; // auto_i id user reference
         $_SESSION['userUID'] = $uIdExist['usuario']; // user name reference
+        $_SESSION['userDNI'] = $uIdExist['dni']; // user name reference
+
         header("Location:./sitio.php");
         exit();
     }

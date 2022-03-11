@@ -27,14 +27,8 @@ section{
     justify-items: center;
    /*background: linear-gradient(to bottom, #f1f4f9, #dff1ff); /*light mode background*/
     background: linear-gradient(to bottom, #373838, #2d3235); /*dark mode background*/
-    overflow: auto;
 }
-/*-----------------------Seccion 1 mobile---------------------*/
-@media screen and (max-width:625px) {
-   
 
-}
-/*-----------------------Seccion 1 mobile---------------------*/
 section .color{
     position: absolute;
     filter: blur(150px);
@@ -79,10 +73,10 @@ section .color:nth-child(3){
 }
 @keyframes animate{
     0%, 100%{
-        transform: translateY(-40px);
+        transform: translateY(-30px);
     }
     50%{
-        transform: translateY(40px);
+        transform: translateY(30px);
     }
 }
 @keyframes animateBg{
@@ -105,13 +99,13 @@ section .color:nth-child(3){
 /*---------------------square position ------------------------------------*/
 .box .square:nth-child(1){
     top: -50px;
-    right: -60px;
+    right: -110px;
     width: 100px;
     height: 100px;
 }
 .box .square:nth-child(2){
     top: 150px;
-    left: -100px;
+    left: -130px;
     width: 120px;
     height: 120px;
     z-index: 2;
@@ -137,12 +131,16 @@ section .color:nth-child(3){
 }
 /*---------------------square position ------------------------------------*/
 
-.container{
+/*.containerTable{
     display: grid;
-    grid-template-columns: auto; /*default value of columns*/
+    grid-template-columns: auto; 
     grid-auto-rows: auto;
-    min-height: 400px;
-    margin-top: 200px;
+    width: auto;
+    height: 70vh;
+    overflow: visible;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 50px;
     align-content: center;
     justify-items: center;
     background: rgba(255,255,255,0.1);
@@ -152,123 +150,67 @@ section .color:nth-child(3){
     border: 1px solid rgb(255, 255, 255, 0.5);
     border-right: 1px solid rgb(255, 255, 255, 0.2);
     border-bottom: 1px solid rgb(255, 255, 255, 0.2);
-}
+    padding: 1.5rem;
+    padding: 25px;
+}*/
 
-.form{
-    position: relative;
+.Mytable{
+    border-collapse: collapse;
     width: 100%;
-    height: 100%;
-    padding: 40px;
-   
-}
-.form h2{
-    position: relative;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 40px;   
-}
-.form h2::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 80px;
-    height: 4px;
-    background: #fff;
-}
-.form .inputBox{
-    width: 100%;
-    margin-top: 20px;
-}
-.form .inputBox input{
-    width: 100%;
-    background: rgb(255, 255, 255, 0.2);
+    height: 300px;
+    overflow: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid rgba(141, 240, 240, 0.5);
+    border-right: 1px solid rgb(141, 240, 240, 0.4);
+    border-bottom: 1px solid rgb(141, 240, 240, 0.4);
+    background: transparent;
     border: none;
     outline: none;
-    padding: 10px 20px;
-    border-radius: 35px;
-    border: 1px solid rgb(255, 255, 255, 0.5);
-    border-right: 1px solid rgb(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
-    font-size: 16px;
-    letter-spacing: 1px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    text-align: left;
     color: #fff;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.05);
+    padding: 1rem;
 }
-.btn{
-    width: 100%;
-    background: rgb(255, 255, 255, 0.2);
-    border: none;
-    outline: none;
-    padding: 10px 20px; 
-    border-radius: 35px;
-    border: 1px solid rgb(255, 255, 255, 0.5);
-    border-right: 1px solid rgb(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #fff;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.05);
+.Mytable thead{
+    font-size: 1em;
 }
-.btn:hover{
-    background: rgb(255, 255, 255, 0);
-    cursor: pointer;
-}
-.form .inputBox input::placeholder{
-    color: #fff;
-}
-.form .inputBox input[type="submit"]{
-    background: #fff;
-    color: #666;
-    max-width: 100px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-.forget{
-    margin-top: 5px;
-    color: #fff;
-}
-.forget a{
-    color: #fff;
-    font-weight: 600;
-}
-
-/*if error credentials*/
-.container_error{
-    position: relative;
-    width: 400px;
-    min-height: 400px;
-    background: rgba(255, 0, 0, 0.6);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 25px 45px rgb(0, 0, 0, 0.1);
-    border: 1px solid rgb(255, 255, 255, 0.5);
-    border-right: 1px solid rgb(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
-    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
-    transform: translate3d(0, 0, 0);
-    perspective: 1000px;
-}
-@keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    }
+.Mytable > :not(caption) > * > * {
+    padding: 0.2rem 0.5rem;
   }
+tr:hover td{
+    color: rgb(166, 216, 218);
+}
+tr:nth-child(even){
+    background-color: rgba(221, 221, 221, 0.2);
+}
+.Mytable > :not(:first-child) {
+    border-top: 2px solid currentColor;
+  }
+.forget{
+    position: relative;
+    top: 7vh;
+    left: 2.5vh;
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+.forget:hover{
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.btnAction{
+    color: aliceblue;
+    padding: 0;
+    margin: 0;
+    padding-left: 25px;
+    font-size: 1.5em;
+}
+
+
+
+

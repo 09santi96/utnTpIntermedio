@@ -18,33 +18,39 @@
         
     <nav class="navSession"> 
 
-        <img src="./img/sesionClient.png" class="imgSession" alt="sessionlogo">
+        <img src="./assets/sesionClient.png" class="imgSession" alt="sessionlogo">
         <div class="sessionOptions">
         <?php 
             if(isset($_SESSION['userUID'])){ //name user log
-                echo "<li><a href='profilePage.php'>Perfil</a></li>";
-                echo "<li><a href='phps/logout.php'>Cerrar sesion</a></li>";
+                echo '<div class="containerLi">';
+                    echo "<p>Bienvenido cliente: ". $_SESSION['userDNI'] . "</p>";
+                    echo "<a href='phps/logout.php'>Cerrar sesion</li>";
+                echo "</div>";
             }else{
-                echo "<li><a href='form.php'>Registrarse</a></li>";
-                echo "<li><a href='index.php'>Iniciar sesion</a></li>";
+                echo '<div class="containerLi">';
+                    echo "<li><a href='form.php'>Registrarse</a></li>";
+                    echo "<li><a href='index.php'>Iniciar sesion</a></li>";
+                echo "</div>";
             }
         ?>
         </div>
        
     </nav>
     <div class="containerSitio">
-            <p>Sube tu archivo!</p>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <div>
-                    <div class="formfield">
-                        <input name="archivo1" type="file" required />
-                    </div>
-
-                    <div class="formbutton">
-                        <button class="btn" type="submit">Subir</button>
-                    </div>
-                </div>
-            </form>
+        <div class="menuSitio">
+            <a class="box container_button" href="./realizar_pedidos.php">
+                <img src="./assets/file-document.svg" class="icons" id="icon1">
+                <p class="text">Nuevo pedido</p>
+            </a>
+             <a class="box container_button" href="./verPedidos.php" >
+                <img src="./assets/search.svg" class="icons" id="icon2">
+                <p class="text">Ver pedidos</p>
+            </a>
+             <a class="box container_button" href="./prox.html" >
+                <img src="./assets/import.svg" class="icons" id="icon3">
+                <p class="text">Finalizar pedidos</p>
+            </a>
+        </div>
     </div>
 </section>
 </body>

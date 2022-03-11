@@ -2,7 +2,7 @@
     $serverName = "localhost";
     $dBUserName = "root";
     $dBPasswoord = "";
-    $dBName = "usuariostpfinal";
+    $dBName = "phpintermedio";
 
     $conn = mysqli_connect($serverName, $dBUserName, $dBPasswoord, $dBName);
     if(!$conn){

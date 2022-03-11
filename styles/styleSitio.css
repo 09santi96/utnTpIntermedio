@@ -44,15 +44,17 @@ section .color:nth-child(3){
     
 }
 .containerSitio{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    
     width: auto;
     z-index: 2;
+    position: absolute;
+    
 }
 .navSession{
     position: absolute;
     display: flex;
-    
+    justify-content: space-between;
     width: 100%;
     height: auto;
     background: rgb(255, 255, 255, 0.6);
@@ -60,19 +62,89 @@ section .color:nth-child(3){
     padding: 10px;
    list-style: none;
 }
-.sessionOptions{
-    display: flex;
-    flex-direction: column;
-    
-}
+
 .imgSession{
     width: 400px;
 }
-.navSession li{
+.containerLi{
+    position: absolute;
+    right: 5px;
+    margin: 3rem 0;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #2d3235;
+}
+.box{
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgb(0, 0, 0, 0.1);
+    border: 2px solid rgb(255, 255, 255, 0.3);
+    border-right: 1px solid rgb(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
+.menuSitio{
+    width: auto;
+    height: 230px;
+    margin: 200px 0;
+}
+.menuSitio .container_button{
+    float: left;
+    width: 200px;
+    height: 210px;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .3s;
+    -webkit-transition: height .3s;
+    color: white;
+    
+    
+}
+.icons{
+    display:block;
+    margin: 40px auto;
+    padding: 7px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    box-shadow: 0px 0px 0px 25px rgba(255, 255, 255, 0);
+    -webkit-box-shadow: 0px 0px 0px 25px rgba(255, 255, 255, 0);
+    transition: box-shadow .3s;
+    -webkit-transition: box-shadow .3s;;
+}
+p.text{
+opacity: 0;
+transition: opacity 1s;
+}
+.menuSitio .container_button:hover{
+    overflow: visible;
+    height: 240px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px rgb(255, 255, 255);
+}
+.menuSitio .container_button:hover p.text{
+    overflow: visible;
+    height: 240px;
+    color: white;
+    opacity: 1;
+}
+.icons:hover{
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, .6);
+}
+a{
     text-decoration: none;
 }
-.containerLi{
-    text-decoration: none;
+.prox{
+   margin: 230px auto;
+   text-align: center;
+}
+h1, h3{
+    color: white;
 }
 
 @keyframes animateBg{
