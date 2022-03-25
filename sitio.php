@@ -46,9 +46,9 @@
                 <img src="./assets/search.svg" class="icons" id="icon2">
                 <p class="text">Ver pedidos</p>
             </a>
-             <a class="box container_button" href="./prox.html" >
+             <a class="box container_button" href="./verPedidosFin.php" >
                 <img src="./assets/import.svg" class="icons" id="icon3">
-                <p class="text">Finalizar pedidos</p>
+                <p class="text">Ver pedidos finalizados</p>
             </a>
         </div>
     </div>

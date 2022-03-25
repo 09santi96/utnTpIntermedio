@@ -55,16 +55,14 @@
                             $rs_task = mysqli_query($conn, $query);
 
                             while($row = mysqli_fetch_array($rs_task)){ ?>
-                            <?php  if($row['estado_pedido'] == "Procesando") { ?>
+                            <?php  if($row['estado_pedido'] == "Finalizado") { ?>
                                 <tr>
                                     <td><?php echo $row['estado_pedido'] ?></td>
                                     <td><?php echo $row['titulo'] ?></td>
                                     <td><?php echo $row['descripcion'] ?></td>
                                     <td><?php echo $row['fecha'] ?></td>
                                     <td>
-                                        <a> <?php echo $row['order_file'] ?> </a>
-                                        <a class="btnAction" target="_blank" href="./uploads/<?php  echo $row['order_file'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
-                                        <a class="btnAction" href="phps/finishOrder.php?id_order=<?php echo $row['id_order'] ?>"><i title="Finalizar" class="fa-solid fa-flag-checkered"></i></a> 
+                                        <a class="btnAction" a href="phps/downloadFileOrder.php?id_order=<?php echo $row['id_order'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
                                     </td>
                             <?php } ?>
                         <?php } ?>

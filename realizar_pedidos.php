@@ -41,7 +41,7 @@
                                 </div>
                         <?php  }  ?>
                     <?php  }  ?>
-                    <form action="./phps/cargar_pedidos.php" method="post" >
+                    <form action="./phps/cargar_pedidos.php" method="post" enctype="multipart/form-data">
                         <div class="inputBox">
                             <input type="text" placeholder="Titulo" name="title" required autofocus>
                         </div>
@@ -49,10 +49,10 @@
                             <input type="text" placeholder="descripcion" name="desc" required>
                         </div>
                         <div class="inputBox">
-                            <input type="datetime-local" placeholder="" name="dateT" required>
+                            <input type="datetime-local" name="dateT" required>
                         </div>
                         <div class="inputBox">
-                            <input type="file" placeholder="Contraseña" name="fileOrder" required>
+                            <input type="file" name="fileOrder" required>
                         </div>
                         <div class="inputBox">
                             <a class="forget" href="./sitio.php">Volver</a>

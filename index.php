@@ -54,10 +54,17 @@
                         </div>
                         <br/>
                        
-                        <input type="checkbox" onclick="showPwd()"> Mostrar contraseña</input>
-                        <br/>
-                        <br/>
-                        <button  class="btn" type="reset" name="reset" value="Limpiar">Limpiar</button>   
+                        <div class="ContainerSubmit">
+                             <input class="btn" type="submit" name="submit" value="Entrar">
+                        </div>
+                            <br>
+                            <hr/>
+                            <br>
+                        <div class="ContainerButton">
+                            <button class="btn" type="button" onclick="showPwd()"> Mostrar contraseña</button>                           
+                            <button  class="btn" type="reset" name="reset" value="Limpiar">Limpiar</button>  
+                        </div>
+
                         <div class="inputBox">
                             <input type="submit" name="submit" value="Entrar">
                             <p class="forget">¿No tiene ninguna cuenta? <a href="./form.php" target="a_blank">Registrarse</a> </p>
