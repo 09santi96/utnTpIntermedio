@@ -62,7 +62,7 @@
                                     <td><?php echo $row['descripcion'] ?></td>
                                     <td><?php echo $row['fecha'] ?></td>
                                     <td>
-                                        <a class="btnAction" a href="phps/downloadFileOrder.php?id_order=<?php echo $row['id_order'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
+                                        <a class="btnAction" target="_blank" href="./uploads/<?php  echo $row['order_file'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
                                     </td>
                             <?php } ?>
                         <?php } ?>

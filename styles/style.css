@@ -27,7 +27,6 @@ section{
     justify-items: center;
    /*background: linear-gradient(to bottom, #f1f4f9, #dff1ff); /*light mode background*/
     background: linear-gradient(to bottom, #373838, #2d3235); /*dark mode background*/
-    overflow: auto;
 }
 /*-----------------------Seccion 1 mobile---------------------*/
 @media screen and (max-width:625px) {
@@ -138,11 +137,8 @@ section .color:nth-child(3){
 /*---------------------square position ------------------------------------*/
 
 .container{
-    display: grid;
-    grid-template-columns: auto; /*default value of columns*/
-    grid-auto-rows: auto;
-    min-height: 400px;
-    margin-top: 200px;
+    height: auto;
+    margin-top: auto;
     align-content: center;
     justify-items: center;
     background: rgba(255,255,255,0.1);
@@ -234,6 +230,19 @@ section .color:nth-child(3){
 .forget a{
     color: #fff;
     font-weight: 600;
+}
+.ContainerButton {
+display: flex;;
+   width: auto;
+}
+.ContainerSubmit{
+    width: auto;
+}
+
+form hr{
+    background-color: wheat;
+    color: wheat;
+    border: 2px solid white;
 }
 
 /*if error credentials*/

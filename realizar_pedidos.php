@@ -31,6 +31,7 @@
                         <?php  if($_GET['error'] == "success"){  ?>
                                 <div class="alert alert-<?php echo $_GET['error']?> alert-dismissible fade show" role="alert">
                                 <?php echo"Pedido realizado" ?>
+                              
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                         <?php  }  ?>
@@ -41,7 +42,7 @@
                                 </div>
                         <?php  }  ?>
                     <?php  }  ?>
-                    <form action="./phps/cargar_pedidos.php" method="post" enctype="multipart/form-data">
+                    <form action="./phps/cargar_pedidos.php" method="POST" enctype="multipart/form-data">
                         <div class="inputBox">
                             <input type="text" placeholder="Titulo" name="title" required autofocus>
                         </div>
@@ -52,14 +53,12 @@
                             <input type="datetime-local" name="dateT" required>
                         </div>
                         <div class="inputBox">
-                            <input type="file" name="fileOrder" required>
+                          <input type="file" name="file" required>
                         </div>
-                        <div class="inputBox">
-                            <a class="forget" href="./sitio.php">Volver</a>
-                            <input type="submit" name="submit" value="Enviar"></input>
-                        </div>
-                        <div class="inputBox">
-                            <button  class="btn" type="reset" name="reset" value="Limpiar">Limpiar</button>   
+                        <div class="inputBox2">
+                            <button class="btn" type="button" onclick="window.location.href='./sitio.php'">Volver</button> 
+                            <button class="btn" type="submit" name="submit">Enviar</button>
+                            <button class="btn" type="reset" name="reset" value="Limpiar">Limpiar</button>   
                         </div>
 
                     </form>

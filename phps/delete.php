@@ -1,16 +1,16 @@
 <?php
-require("db.php"); 
+require('dbConnect.php'); 
+
 if(isset($_GET['id_order'])){
-    $id = $_GET['id'];
-    $query = "DELETE FROM task WHERE id = '$id';";
+    $id = $_GET['id_order'];
+    $query = "DELETE FROM pedidos WHERE id_order = '$id';";
     $rs =  mysqli_query($conn, $query); 
 
     if(!$rs){
-        die("Query failed");
+        die("No se pudo eliminar");
     }
-    $_SESSION['message'] = 'Task Removed Succesfully';
-    $_SESSION['message_type'] = 'danger';
-    header("Location: ../index.php");
+ 
+    header("Location: ../verPedidos.php?error=danger");
  
 }
 ?>  

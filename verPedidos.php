@@ -23,16 +23,16 @@
 
     <div class="containerTable">
         
-                    <?php  if(isset($_GET['message'])){  ?>
-                        <?php  if($_GET['message_type'] == "success"){  ?>
-                                <div class="alert alert-<?php echo $_GET['message_type']?> alert-dismissible fade show" role="alert">
-                                <?php echo $_GET['message'] ?>
+                    <?php  if(isset($_GET['error'])){  ?>
+                        <?php  if($_GET['error'] == "danger"){  ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?php echo"Pedido eliminado" ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                         <?php  }  ?>
-                        <?php  if($_GET['message'] == "danger"){  ?>
-                                <div class="alert alert-<?php echo $_GET['message_type']?> alert-dismissible fade show" role="alert">
-                                <?php echo $_GET['message'] ?>
+                        <?php  if($_GET['error'] == "success"){  ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <?php echo"Pedido finalizado" ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                         <?php  }  ?>
@@ -62,9 +62,11 @@
                                     <td><?php echo $row['descripcion'] ?></td>
                                     <td><?php echo $row['fecha'] ?></td>
                                     <td>
-                                        <a> <?php echo $row['order_file'] ?> </a>
+                                       
                                         <a class="btnAction" target="_blank" href="./uploads/<?php  echo $row['order_file'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
                                         <a class="btnAction" href="phps/finishOrder.php?id_order=<?php echo $row['id_order'] ?>"><i title="Finalizar" class="fa-solid fa-flag-checkered"></i></a> 
+                                        <a class="btnAction" href="phps/delete.php?id_order=<?php echo $row['id_order'] ?>"><i title="Eliminarr" class="fa-solid fa-trash-can"></i></a> 
+
                                     </td>
                             <?php } ?>
                         <?php } ?>

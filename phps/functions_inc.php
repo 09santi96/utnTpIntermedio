@@ -11,11 +11,11 @@
     //-----------------------------------------------------------------------------------------
     function invalidUserId($user){
         $result="";
-        if ( !preg_match("/^[a-zA-Z0-9]*$/", $user) ) {
+        if ( !preg_match("/^[a-zA-Z0-9]*$/", $user) ) 
             $result=true;
-        }else{
+        else
             $result=false;
-        }
+        
         return $result;
     }
     //-----------------------------------------------------------------------------------------
@@ -78,20 +78,40 @@
     header("Location:form.php?error=none");
     exit();
  }
- function createOrder($conn, $titulo, $desc, $date, $files){ //el orden de los parametros debe coincidir con el orden de la tabla
-    $sql = "INSERT INTO pedidos (titulo, descripcion, fecha, order_file) values(?, ?, ?, ?);";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $sql) ){
-         header("Location:realizar_pedidos.php?error=danger");
-         exit();
+
+ //-----------------------------------insert db functions-------------------------------------------------
+    /*
+    function createOrder($conn, $titulo, $desc, $date, $files){ //el orden de los parametros debe coincidir con el orden de la tabla
+        $sql = "INSERT INTO pedidos (titulo, descripcion, fecha, order_file) values(?, ?, ?, ?);";
+        $stmt = mysqli_stmt_init($conn);
+
+        if(!mysqli_stmt_prepare($stmt, $sql) ){
+            header("Location:realizar_pedidos.php?error=danger");
+            exit();
+        }else{
+            mysqli_stmt_bind_param($stmt, "ssss", $titulo, $desc, $date, $files);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            
+            header("Location:../realizar_pedidos.php?error=success");
+            exit();
+        }
+    }*/
+
+    function createOrder($conn, $titulo, $desc, $date, $fileName){
+
+        $query = "INSERT INTO  pedidos (titulo, descripcion, fecha, order_file) VALUES('$titulo', '$desc', '$date', '$fileName');";
+        $rs =  mysqli_query($conn, $query);
+
+        if(!$rs){
+            header("Location:../realizar_pedidos.php?error=danger");
+            exit();
+        }
+        if($rs){
+            header("Location:../realizar_pedidos.php?error=success");
+        }
+
     }
-    mysqli_stmt_bind_param($stmt, "ssss", $titulo, $desc, $date, $files);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    
-    header("Location:../realizar_pedidos.php?error=success");
-    exit();
- }
 
 
 //---------------------------------log in functions----------------------------------------------------
