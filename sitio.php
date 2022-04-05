@@ -1,5 +1,11 @@
 <?php
     session_start();
+    
+    include('./phps/dbConnect.php');
+    $queryUser = "SELECT * FROM usuarios;";
+    $rs_users = mysqli_query($conn, $queryUser);
+    $rowUsers = mysqli_fetch_array($rs_users);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +23,11 @@
         <div class="color"></div>
         
     <nav class="navSession"> 
-
-        <img src="./assets/sesionClient.png" class="imgSession" alt="sessionlogo">
+        <?php if($rowUsers['lvl_user'] == 1) { ?>
+             <img src="./assets/sesionAdmin.png" class="imgSession" alt="sessionlogo">
+        <?php }else{ ?>
+            <img src="./assets/sesionClient.png" class="imgSession" alt="sessionlogo">
+        <?php } ?>
         <div class="sessionOptions">
         <?php 
             if(isset($_SESSION['userUID'])){ //name user log
@@ -38,6 +47,13 @@
     </nav>
     <div class="containerSitio">
         <div class="menuSitio">
+      
+        <?php if($rowUsers['lvl_user'] == 1) { ?>
+            <a class="box container_button" href="./verUsuarios.php">
+                <img src="./assets/users-svgrepo.svg" class="icons" id="icon1">
+                <p class="text">Usuarios</p>
+            </a>
+        <?php } ?>
             <a class="box container_button" href="./realizar_pedidos.php">
                 <img src="./assets/file-document.svg" class="icons" id="icon1">
                 <p class="text">Nuevo pedido</p>

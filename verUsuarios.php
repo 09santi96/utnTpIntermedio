@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles/bootstrap.css">
     <link rel="stylesheet" href="./styles/styleVerPedidos.css">
     <script src="https://kit.fontawesome.com/7d49ec5fe9.js" crossorigin="anonymous"></script>
-    <title>Ver pedidos</title>
+    <title>Usuarios</title>
 </head>
 <body>
 <section>
@@ -41,39 +41,32 @@
             <table class="Mytable">
                 <thead>
                     <tr>
-                        <th>Estado</th>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                        <th>Fecha</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Dni</th>
+                        <th>Contraseña</th>
+                        <th>Permisos</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                         <?php
                             include('./phps/dbConnect.php');
-                            $query = "SELECT * FROM pedidos;";
                             $queryUser = "SELECT * FROM usuarios;";
-                            $rs_task = mysqli_query($conn, $query);
                             $rs_users = mysqli_query($conn, $queryUser);
-                            
-                            $rowUsers = mysqli_fetch_array($rs_users);
-
-                            while($row = mysqli_fetch_array($rs_task)){ ?>
-                            <?php  if($row['estado_pedido'] == "Procesando") { ?>
+                            while( $rowUsers = mysqli_fetch_array($rs_users)){ ?>
+                           
                                 <tr>
-                                    <td><?php echo $row['estado_pedido'] ?></td>
-                                    <td><?php echo $row['titulo'] ?></td>
-                                    <td><?php echo $row['descripcion'] ?></td>
-                                    <td><?php echo $row['fecha'] ?></td>
+                                    <td><?php echo $rowUsers['usuario'] ?></td>
+                                    <td><?php echo $rowUsers['email'] ?></td>
+                                    <td><?php echo $rowUsers['dni'] ?></td>
+                                    <td><?php echo $rowUsers['usersPwd'] ?></td>
+                                    <td><?php echo $rowUsers['lvl_user'] ?></td>
                                     <td>
-                                       
-                                        <a class="btnAction" target="_blank" href="./uploads/<?php  echo $row['order_file'] ?>"><i title="Descargar" class="fa-solid fa-file-arrow-down"></i></a>
-                                        <?php if($rowUsers['lvl_user'] == 1) { ?>
-                                            <a class="btnAction" href="phps/finishOrder.php?id_order=<?php echo $row['id_order'] ?>"><i title="Finalizar" class="fa-solid fa-flag-checkered"></i></a> 
-                                            <a class="btnAction" href="phps/delete.php?id_order=<?php echo $row['id_order'] ?>"><i title="Eliminarr" class="fa-solid fa-trash-can"></i></a> 
-                                        <?php } ?>
+                                        <a class="btnAction" href="phps/edit.php?id_order=<?php echo $row['id_usuario'] ?>"><i title="Editar Usuario" class="fa-solid fa-flag-checkered"></i></a> 
+                                        <a class="btnAction" href="phps/delete.php?id_order=<?php echo $row['id_usuario'] ?>"><i title="Eliminar" class="fa-solid fa-trash-can"></i></a> 
                                     </td>
-                            <?php } ?>
+                            </tr>
                         <?php } ?>
                         
                     </tbody>
